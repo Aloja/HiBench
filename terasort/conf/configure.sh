@@ -19,10 +19,10 @@ OUTPUT_HDFS=${DATA_HDFS}/Terasort/Output
 
 # for prepare (total) - 1T
 #DATASIZE=10000000000
-DATASIZE=100000000
+if [ -z "$DATASIZE" ]; then DATASIZE=100000000; fi
 #NUM_MAPS=180
-NUM_MAPS=96
+if [ -z "$NUM_MAPS" ]; then NUM_MAPS=96; fi
 
 # for running (total)
-NUM_REDS=48
+if [ -z "$NUM_REDS" ]; then NUM_REDS=48; fi
 

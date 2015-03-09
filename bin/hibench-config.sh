@@ -24,17 +24,17 @@ export HIBENCH_VERSION="3.0"
 
 ###################### Global Paths ##################
 
-export JAVA_HOME=
-export HADOOP_HOME=
-export HADOOP_EXECUTABLE=
-export HADOOP_CONF_DIR=
-export HADOOP_EXAMPLES_JAR=
-export MAPRED_EXECUTABLE=
+#export JAVA_HOME=
+#export HADOOP_HOME=
+#export HADOOP_EXECUTABLE=
+#export HADOOP_CONF_DIR=
+#export HADOOP_EXAMPLES_JAR=
+#export MAPRED_EXECUTABLE=
 #Set the varaible below only in YARN mode
 export HADOOP_JOBCLIENT_TESTS_JAR=
 
 export HADOOP_MAPRED_HOME=$HADOOP_HOME
-export HADOOP_VERSION=hadoop2 # set it to hadoop1 to enable MR1, hadoop2 to enable MR2
+#export HADOOP_VERSION=hadoop2 # set it to hadoop1 to enable MR1, hadoop2 to enable MR2
 
 if $HADOOP_EXECUTABLE version|grep -i -q cdh4; then
 	HADOOP_RELEASE=cdh4
@@ -119,9 +119,9 @@ export HIBENCH_REPORT=${HIBENCH_HOME}/hibench.report
 ################# Compress Options #################
 # swith on/off compression: 0-off, 1-on.
 # Switch it off (COMPRESS_GLOBAL=0) for better performance
-export COMPRESS_GLOBAL=1
-export COMPRESS_CODEC_GLOBAL=org.apache.hadoop.io.compress.DefaultCodec
-export COMPRESS_CODEC_MAP=org.apache.hadoop.io.compress.DefaultCodec
+if [ -z "$COMPRESS_GLOBAL" ]; then export COMPRESS_GLOBAL=1; fi
+if [ -z "$COMPRESS_CODEC_GLOBAL" ]; then export COMPRESS_CODEC_GLOBAL=org.apache.hadoop.io.compress.DefaultCodec; fi
+if [ -z "$COMPRESS_CODEC_MAP" ]; then export COMPRESS_CODEC_MAP=org.apache.hadoop.io.compress.DefaultCodec; fi
 # Set COMPRESS_CODEC_MAP to SnappyCodec (as shown below) for better performance
 #export COMPRESS_CODEC_MAP=org.apache.hadoop.io.compress.SnappyCodec 
 

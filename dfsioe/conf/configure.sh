@@ -22,9 +22,9 @@ MAP_JAVA_OPTS=`cat $HADOOP_CONF_DIR/mapred-site.xml | grep "mapreduce.map.java.o
 RED_JAVA_OPTS=`cat $HADOOP_CONF_DIR/mapred-site.xml | grep "mapreduce.reduce.java.opts" | awk -F\< '{print $5}' | awk -F\> '{print $NF}'`
 
 # dfsioe-read
-RD_NUM_OF_FILES=256
-RD_FILE_SIZE=200 #2000
+if [ -z "$RD_NUM_OF_FILES" ]; then RD_NUM_OF_FILES=256; fi
+if [ -z "$RD_FILE_SIZE" ]; then RD_FILE_SIZE=200; fi #2000
 
 # dfsioe-write
-WT_NUM_OF_FILES=256
-WT_FILE_SIZE=100 #1000
+if [ -z "$WT_NUM_OF_FILES" ]; then WT_NUM_OF_FILES=256; fi
+if [ -z "$WT_FILE_SIZE" ]; then WT_FILE_SIZE=100; fi #1000
