@@ -18,9 +18,9 @@
 INPUT_HDFS=/benchmarks/TestDFSIO-Enh
 
 # dfsioe-read
-RD_NUM_OF_FILES=256
-RD_FILE_SIZE=2000 #2000
+if [ -z "$RD_NUM_OF_FILES" ]; then RD_NUM_OF_FILES=256; fi
+if [ -z "$RD_FILE_SIZE" ]; then RD_FILE_SIZE=2000; fi #2000
 
 # dfsioe-write
-WT_NUM_OF_FILES=256
-WT_FILE_SIZE=1000 #1000
+if [ -z "$WT_NUM_OF_FILES" ]; then WT_NUM_OF_FILES=256; fi
+if [ -z "$WT_FILE_SIZE" ]; then WT_FILE_SIZE=1000; fi #1000

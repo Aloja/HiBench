@@ -30,8 +30,8 @@ fi
 
 # for prepare (per node) - 24G/node
 #DATASIZE=24000000000
-DATASIZE=24000000000
-NUM_MAPS=16
+if [ -z "$DATASIZE" ]; then DATASIZE=24000000000; fi
+if [ -z "$NUM_MAPS" ]; then NUM_MAPS=16; fi
 
 # for running (in total)
-NUM_REDS=48
+if [ -z "$NUM_REDS" ]; then NUM_REDS=48; fi

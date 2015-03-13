@@ -32,11 +32,11 @@ INPUT_HDFS=${PAGERANK_BASE_HDFS}/${PAGERANK_INPUT}
 OUTPUT_HDFS=${PAGERANK_BASE_HDFS}/${PAGERANK_OUTPUT}
 
 # for prepare
-PAGES=50000000
-NUM_MAPS=96
-NUM_REDS=48
+if [ -z "$PAGES" ]; then PAGES=50000000; fi
+if [ -z "$NUM_MAPS" ]; then NUM_MAPS=96; fi
+if [ -z "$NUM_REDS" ]; then NUM_REDS=48; fi
 
 # for running
-NUM_ITERATIONS=3
-BLOCK=0
-BLOCK_WIDTH=16
+if [ -z "$NUM_ITERATIONS" ]; then NUM_ITERATIONS=3; fi
+if [ -z "$BLOCK" ]; then BLOCK=0; fi
+if [ -z "$BLOCK_WIDTH" ]; then BLOCK_WIDTH=16; fi

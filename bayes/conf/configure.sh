@@ -33,10 +33,10 @@ OUTPUT_HDFS=${BAYES_BASE_HDFS}/${BAYES_OUTPUT}
 
 # for prepare
 #PAGES=100000
-PAGES=80000
-CLASSES=100
-NUM_MAPS=96
-NUM_REDS=48
+if [ -z "$PAGES" ]; then PAGES=80000; fi
+if [ -z "$CLASSES" ]; then CLASSES=100; fi
+if [ -z "$NUM_MAPS" ]; then NUM_MAPS=96; fi
+if [ -z "$NUM_REDS" ]; then NUM_REDS=48; fi
 
 # bench parameters
-NGRAMS=3
+if [ -z "$NGRAMS" ]; then NGRAMS=3; fi
